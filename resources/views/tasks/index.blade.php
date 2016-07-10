@@ -5,7 +5,7 @@
     <!-- Bootstrap Boilerplate... -->
 
     <div class="panel-body">
-		<!-- Display Validation Errors -->
+        <!-- Display Validation Errors -->
         @include('common.errors')
 
         <!-- New Task Form -->
@@ -14,7 +14,7 @@
 
             <!-- Task Name -->
             <div class="form-group">
-                <label for="task" class="col-sm-3 control-label">Task</label>
+                <label for="task-name" class="col-sm-3 control-label">Task</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="name" id="task-name" class="form-control">
@@ -32,7 +32,8 @@
         </form>
     </div>
 
-     @if (count($tasks) > 0)
+    <!-- Current Tasks -->
+    @if (count($tasks) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
                 Current Tasks
@@ -61,8 +62,8 @@
 							            {{ csrf_field() }}
 							            {{ method_field('DELETE') }}
 							
-							            <button type="submit" class="btn btn-danger">
-							                <i class="fa fa-trash"></i> Delete
+							            <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
+							                <i class="fa fa-btn fa-trash"></i>Delete
 							            </button>
 							        </form>
                                 </td>
@@ -73,5 +74,4 @@
             </div>
         </div>
     @endif
-    
 @endsection
